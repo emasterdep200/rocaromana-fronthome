@@ -121,11 +121,13 @@ export const formatNumberWithCommas = (number) => {
     currency: 'COP',
   })
 
+  let inumber = parseInt(number)
+
   if (number == null) {
     return ''; // or any default value you want
   }
 
-  return Cop.format(number)
+  return Cop.format(inumber)
 };
 
 export const placeholderImage = (e) => {
