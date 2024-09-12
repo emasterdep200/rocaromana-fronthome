@@ -115,10 +115,17 @@ export const isThemeEnabled = () => {
 
 
 export const formatNumberWithCommas = (number) => {
+
+  var Cop = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+  })
+
   if (number == null) {
     return ''; // or any default value you want
   }
-  return number.toLocaleString();
+
+  return Cop.format(number)
 };
 
 export const placeholderImage = (e) => {
