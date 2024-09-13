@@ -58,7 +58,7 @@ const PremiumOwnerDetailsCard = (
                     <div className="owner-deatils">
                         <span className="owner-name"> {getPropData && getPropData.customer_name}</span>
                         {getPropData && getPropData.email &&
-                            <span className="owner-add" onClick={handleCheckPremium}>
+                            <span className="owner-add">
                                 {" "}
                                 <RiMailSendLine size={15} />
                                 {getPropData && `${getPropData.email.slice(0, 2)}${'*'.repeat(getPropData.email.length - 2)}`}
