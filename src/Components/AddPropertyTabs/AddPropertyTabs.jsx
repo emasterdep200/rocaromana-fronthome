@@ -783,18 +783,7 @@ export default function AddPropertyTabs() {
                                             </select>
                                         </div>
                                     </div>
-                                    {/* <div className="col-sm-12 col-md-6 col-lg-4">
-                                        <div className="add_prop_fields">
-                                            <span>{translate("propStatus")}</span>
-                                            <span class="switch mt-2">
-                                                <input id="switch-rounded"
-                                                    type="checkbox"
-                                                    checked={tab1.isPrivate}
-                                                    onChange={handleToggleChange} />
-                                                <label for="switch-rounded"></label>
-                                            </span>
-                                        </div>
-                                    </div> */}
+
 
                                 </div>
                             )}
