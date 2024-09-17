@@ -44,13 +44,17 @@ const authSlice = createSlice({
       //auth.data = action.payload;
       auth.loading = false;
     },
+    loginSucess: (auth, action) => {
+      auth.data = action.payload;
+      auth.loading = false;
+    },
     signupFailure: (auth, action) => {
       auth.loading = false;
     },
   },
 });
 
-export const { authRequested, authSuccess, authFailure, userLogout, userUpdateData, signupRequested, signupSucess, signupFailure } = authSlice.actions;
+export const { authRequested, authSuccess, authFailure, userLogout, userUpdateData, signupRequested, signupSucess, signupFailure, loginSucess } = authSlice.actions;
 
 // Selector para obtener el usuario del estado
 export const selectUser = (state) => state.auth?.user;
@@ -106,6 +110,21 @@ export const signupLoaded = (name, email, mobile, type, address, firebase_id, lo
             onError,
         })
     );
+};
+
+export const loginLoaded = (name, email, mobile, type, address, firebase_id, logintype, profile, fcm_id, cargo,city,state,country, cedula, onSuccess, onError, onStart) => {
+  store.dispatch(
+      apiCallBegan({
+          ...user_signupApi(name, email, mobile, type, address, firebase_id, logintype, profile, fcm_id, cargo, city, state, country, cedula),
+          displayToast: false,
+          onStartDispatch: signupRequested.type,
+          onSuccessDispatch: loginSucess.type,
+          onErrorDispatch: signupFailure.type,
+          onStart,
+          onSuccess,
+          onError,
+      })
+  );
 };
 
 

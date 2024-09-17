@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseData from "@/utils/Firebase";
-import { loginUser, signupLoaded, observeAuthState, selectUser, loadUpdateUserData } from "@/store/reducer/authSlice";
+import { loginUser, signupLoaded, observeAuthState, selectUser, loadUpdateUserData, loginLoaded } from "@/store/reducer/authSlice";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import Link from "next/link";
@@ -109,7 +109,7 @@ const LoginModal = ({ isOpen, onClose }) => {
     try {
       const response = await signInWithEmailAndPassword(authentication, email, password); // Intenta iniciar sesión
 
-      signupLoaded(
+      loginLoaded(
           "",
           email,
           "",
