@@ -86,7 +86,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               if (!res.error) {
                   toast.success("Registration successful! We have sent you a link to verify your email");
                   onCloseLogin();
-                  //navigate.push("/");
+                  navigate.push("/");
               }
           },
           (err) => {
@@ -234,11 +234,27 @@ const LoginModal = ({ isOpen, onClose }) => {
                   <label>{translate("city")}</label>
                   <select name="city" onChange={handleInputChange}>
                     <option>{translate("SelectOption")}</option>
-                    <option value="BOG">Bogota</option>
-                    <option value="MED">Medellin</option>
-                    <option value="CAL">Cali</option>
-                    <option value="BAQ">Barranquilla</option>
-                    <option value="CTG">Cartagena</option>
+                    <option value="BOG">Bogota</option>   			
+                    <option value="VILL">Villavicencio</option>   	
+                    <option value="IBA">Ibagué</option>   			
+                    <option value="BUC">Bucaramanga</option>   		
+                    <option value="VAPR">Valledupar</option>   		
+                    <option value="MDE">Medellin</option>   		
+                    <option value="ARM">Armenia</option>   			
+                    <option value="PER">Pereira</option>   			
+                    <option value="MAN">Manizales</option>   		
+                    <option value="CUC">Cucuta</option>   			
+                    <option value="CAL">Cali</option>   			
+                    <option value="POP">Popayán</option>   			
+                    <option value="PAS">Pasto</option>   			
+                    <option value="NEI">Neiva</option>   			
+                    <option value="TUN">Tunja</option>   			
+                    <option value="BAQ">Barranquilla</option>   	
+                    <option value="CTG">Cartagena</option>   		
+                    <option value="MON">Monteria</option>   		
+                    <option value="STM">Santa Marta</option>   		
+                    <option value="SIN">Sincelejo</option>   		
+
                   </select>
               </div>
               <div className="form-group">
