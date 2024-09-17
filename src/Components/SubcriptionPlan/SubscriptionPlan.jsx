@@ -99,14 +99,11 @@ const SubscriptionPlan = () => {
 
 
     const [aid, setAid] = useState("");
-
-
-
     const lang = useSelector(languageData);
 
 
 
-
+    console.log(user?.fcm_id);
 
 
     // useSelector(languageData)
