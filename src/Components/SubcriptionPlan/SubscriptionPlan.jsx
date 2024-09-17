@@ -103,7 +103,7 @@ const SubscriptionPlan = () => {
 
 
 
-    console.log(user?.fcm_id);
+    console.log(user);
 
 
     // useSelector(languageData)
