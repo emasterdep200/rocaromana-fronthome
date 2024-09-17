@@ -147,6 +147,11 @@ const LoginModal = ({ isOpen, onClose }) => {
   };
 
 
+  const setRegistroBasic = async (e) => {
+    setIsRegistering(true);
+    setAsesorRegistro(false);
+  }
+
   const setRegistroAsesor = async (e) => {
     setIsRegistering(true);
     setAsesorRegistro(true);
@@ -346,7 +351,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               </div>
               <div className="signup-link">
                 <span>{translate("no_account")}</span>
-                <button onClick={() => setIsRegistering(true)} className="continue-button">{translate("Signupnow")}</button>
+                <button onClick={() => setRegistroBasic() } className="continue-button">{translate("Signupnow")}</button>
                 <button onClick={() => setRegistroAsesor() } className="continue-button mt-2">{"Registro como asesor"}</button>
               </div>
             </>
