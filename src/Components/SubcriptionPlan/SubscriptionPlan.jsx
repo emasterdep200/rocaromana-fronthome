@@ -26,7 +26,7 @@ import Swal from "sweetalert2";
 import NoData from "@/Components/NoDataFound/NoData";
 import { useRouter } from "next/router";
 import Layout from '../Layout/Layout';
-import { userSignUpData } from '@/store/reducer/authSlice';
+import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
 import LoginModal from '../LoginModal/LoginModal';
 // Import Razorpay component
 import useRazorpay from "react-razorpay";
@@ -100,10 +100,6 @@ const SubscriptionPlan = () => {
 
     const [aid, setAid] = useState("");
     const lang = useSelector(languageData);
-
-
-
-    console.log(user);
 
 
     // useSelector(languageData)
@@ -290,8 +286,36 @@ const SubscriptionPlan = () => {
             assignFreePackageApi(
                 data.id,
                 (res) => {
-                    router.push("/");
-                    toast.success(res.message);
+
+                    loginLoaded(
+                        "",
+                        user?.email,
+                        "",
+                        "0",
+                        "",
+                        user?.firebase_id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        (res) => {
+                            let signupData = res.data;
+              
+                            if (!res.error) {
+                                router.push("/");
+                                toast.success(res.message);
+                            }
+                        },
+                        (err) => {
+              
+                        }
+                    );
+                    
+
                 },
                 (err) => {
                     console.log(err);
