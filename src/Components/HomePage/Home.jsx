@@ -16,7 +16,7 @@ import Loader from "../Loader/Loader";
 import { GetAllArticlesApi, GetCountByCitysApi, GetFeturedListingsApi, GetSliderApi, getAllprojectsApi, getUserRecommendationApi } from "@/store/actions/campaign";
 import VerticalCardSkeleton from "../Skeleton/VerticalCardSkeleton";
 import VerticalCard from "../Cards/VerticleCard";
-import AdCard from "../Cards/VerticleCard";
+import AdCard from "../Cards/AdCard";
 import HorizontalCard from "../Cards/HorizontalCard";
 import CustomHorizontalSkeleton from "../Skeleton/CustomHorizontalSkeleton";
 import CategoryCard from "../Cards/CategoryCard";
