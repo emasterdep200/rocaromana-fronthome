@@ -1146,7 +1146,7 @@ const HomePage = () => {
                                             // Show skeleton loading when data is being fetched
                                             <Swiper
                                                 dir={language.rtl === "1" ? "rtl" : "ltr"}
-                                                slidesPerView={4}
+                                                slidesPerView={5}
                                                 spaceBetween={30}
                                                 freeMode={true}
                                                 pagination={{
