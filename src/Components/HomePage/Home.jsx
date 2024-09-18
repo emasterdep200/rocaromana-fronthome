@@ -1088,16 +1088,16 @@ const HomePage = () => {
                                 <div className="most_fav_header">
                                     <div>
                                         <h3 className="headline">
-                                            {translate("mostFavProp")}{" "}
+                                            {translate("Anuncios")}{" "}
                                         </h3>
                                     </div>
                                 </div>
                                 <div className="mobile-headline-view">
                                     <MobileHeadline
                                         data={{
-                                            start: translate("most"),
-                                            center: translate("fav"),
-                                            end: translate("properties"),
+                                            start:'',
+                                            center: translate("properties"),
+                                            end: translate("favoritas"),
                                             link: getMostFavProperties.length > 6 ? "/most-favorite-properties" : "",
                                         }}
                                     />
