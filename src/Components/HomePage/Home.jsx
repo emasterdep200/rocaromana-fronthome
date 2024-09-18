@@ -16,6 +16,7 @@ import Loader from "../Loader/Loader";
 import { GetAllArticlesApi, GetCountByCitysApi, GetFeturedListingsApi, GetSliderApi, getAllprojectsApi, getUserRecommendationApi } from "@/store/actions/campaign";
 import VerticalCardSkeleton from "../Skeleton/VerticalCardSkeleton";
 import VerticalCard from "../Cards/VerticleCard";
+import AdCard from "../Cards/VerticleCard";
 import HorizontalCard from "../Cards/HorizontalCard";
 import CustomHorizontalSkeleton from "../Skeleton/CustomHorizontalSkeleton";
 import CategoryCard from "../Cards/CategoryCard";
@@ -1074,6 +1075,87 @@ const HomePage = () => {
                             </div>
                         </section>
                     ) : null}
+
+
+
+
+
+                {/* ===== ADS SECTION =======  */}
+
+                {getMostFavProperties && getMostFavProperties?.length > 0 ? (
+                        <section id="most_fav">
+                            <div className="container">
+                                <div className="most_fav_header">
+                                    <div>
+                                        <h3 className="headline">
+                                            {translate("mostFavProp")}{" "}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div className="mobile-headline-view">
+                                    <MobileHeadline
+                                        data={{
+                                            start: translate("most"),
+                                            center: translate("fav"),
+                                            end: translate("properties"),
+                                            link: getMostFavProperties.length > 6 ? "/most-favorite-properties" : "",
+                                        }}
+                                    />
+                                </div>
+                                <div id="most-view-properties" dir={language.rtl === "1" ? "rtl" : "ltr"}>
+                                    <Swiper
+                                        slidesPerView={4}
+                                        spaceBetween={30}
+                                        freeMode={true}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        modules={[FreeMode, Pagination]}
+                                        className="most-view-swiper"
+                                        breakpoints={breakpointsMostFav}
+                                    >
+                                        {isLoading ? (
+                                            // Show skeleton loading when data is being fetched
+                                            <Swiper
+                                                dir={language.rtl === "1" ? "rtl" : "ltr"}
+                                                slidesPerView={4}
+                                                spaceBetween={30}
+                                                freeMode={true}
+                                                pagination={{
+                                                    clickable: true,
+                                                }}
+                                                modules={[FreeMode, Pagination]}
+                                                className="most-view-swiper"
+                                                breakpoints={breakpointsMostFav}
+                                            >
+                                                {Array.from({ length: 6 }).map((_, index) => (
+                                                    <SwiperSlide>
+                                                        <div className="loading_data">
+                                                            <VerticalCardSkeleton />
+                                                        </div>
+                                                    </SwiperSlide>
+                                                ))}
+                                            </Swiper>
+                                        ) : (
+                                            getMostFavProperties?.map((ele, index) => (
+                                                <SwiperSlide id="most-view-swiper-slider" key={index}>
+                                                    <Link href="/properties-details/[slug]" as={`/properties-details/${ele.slug_id}`} passHref>
+                                                        <AdCard ele={ele} />
+                                                    </Link>
+                                                </SwiperSlide>
+                                            ))
+                                        )}
+                                    </Swiper>
+                                </div>
+
+                            </div>
+                        </section>
+                    ) : null}
+
+
+
+
+
 
                     {/* ===== AGENT SECTION =======  */}
                     {/* <section id='agent_section' data-aos="fade-up" data-aos-duration="7000">
