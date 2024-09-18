@@ -108,21 +108,6 @@ function AdCard({ ele, removeCard, onImageLoad }) {
             <div className="card verticle_main_card">
                 <div className="verticle_card_img_div">
                     <Image loading="lazy" className="card-img" id="verticle_card_img" src={ele?.title_image} alt="no_img" width={200} height={200} onLoad={handleImageLoad} onError={placeholderImage} />
-                    {ele?.promoted ? <span className="feature_tag">{translate("feature")}</span> : null}
-
-                    <span className="like_tag">
-                        {isLiked ? (
-                            <AiFillHeart size={25} className="liked_property" onClick={handleDislike} />
-                        ) : isDisliked ? (
-                            <AiOutlineHeart size={25} className="disliked_property" onClick={handleLike} />
-                        ) : (
-                            <AiOutlineHeart size={25} onClick={handleLike} />
-                        )}
-                    </span>
-                    <span className="sell_teg">{translate(ele?.property_type)}</span>
-                    <span className="price_teg">
-                        {CurrencySymbol} {formatPriceAbbreviated(ele?.price)}
-                    </span>
                 </div>
                 {/* <div className="card-img-overlay">
                 </div> */}
@@ -141,39 +126,7 @@ function AdCard({ ele, removeCard, onImageLoad }) {
                     </div>
                 </div>
 
-                <div className="card-footer" id="feature_card_footer">
-                    <div className="row">
-                        {ele?.parameters &&
-                            ele?.parameters.slice(0, 4).map((elem, index) => (
-                                elem?.value !== "" && elem?.value !== "0" &&
-                                <div div className="col-12 col-sm-6 col-md-6 " key={index} >
-                                    <div className="footer_content" key={index}>
-                                        <div className="footer_img_value">
-                                            {themeEnabled ? (
-
-                                                <ImageToSvg imageUrl={elem?.image} className="custom-svg" />
-                                            ) : (
-                                                <Image loading="lazy" src={elem?.image} alt="no_img" width={20} height={16} onError={placeholderImage} />
-                                            )}
-                                            <p className="text_footer">
-                                                {Array.isArray(elem?.value) ? elem.value.slice(0, 2).join(', ') : elem.value}
-                                            </p>
-
-
-                                        </div>
-                                        <p className="text_footer_name"> {elem?.name}</p>
-                                    </div>
-                                </div>
-
-
-                            ))}
-                    </div>
-                </div>
             </div>
-            {
-                showModal &&
-                <LoginModal isOpen={showModal} onClose={handleCloseModal} />
-            }
         </div >
     );
 }
