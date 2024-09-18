@@ -1143,7 +1143,7 @@ const HomePage = () => {
                                         }}
                                         modules={[FreeMode, Pagination, Autoplay, Navigation]}
                                         navigation
-                                        autoplay={{ delay: 1000 }}
+                                        autoplay={{ delay: 3000 }}
                                         className="most-view-swiper"    
                                         breakpoints={breakpointsMostFav}
                                     >
