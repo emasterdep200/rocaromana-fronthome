@@ -1132,7 +1132,7 @@ const HomePage = () => {
                                 </div>
                                 <div id="most-view-properties" dir={language.rtl === "1" ? "rtl" : "ltr"}>
                                     <Swiper
-                                        slidesPerView={4}
+                                        slidesPerView={5}
                                         spaceBetween={30}
                                         freeMode={true}
                                         pagination={{
