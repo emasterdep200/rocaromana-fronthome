@@ -13,7 +13,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 import MobileHeadline from "../MobileHeadlines/MobileHeadline";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
-import { GetAllArticlesApi, GetCountByCitysApi, GetFeturedListingsApi, GetSliderApi, getAllprojectsApi, getUserRecommendationApi } from "@/store/actions/campaign";
+import { GetAllArticlesApi, GetCountByCitysApi, GetFeturedListingsApi, GetAnunciosApi, GetSliderApi, getAllprojectsApi, getUserRecommendationApi } from "@/store/actions/campaign";
 import VerticalCardSkeleton from "../Skeleton/VerticalCardSkeleton";
 import VerticalCard from "../Cards/VerticleCard";
 import AdCard from "../Cards/AdCard";
@@ -74,6 +74,7 @@ const HomePage = () => {
     const [getArticles, setGetArticles] = useState();
     const [getNearByCitysData, setGetNearByCitysData] = useState();
     const [userRecommendationData, setUserRecommendationData] = useState();
+    const [getAnuncios, setGetAnuncios] = useState();
 
     const isLoggedIn = useSelector(userSignUpData);
     const userCurrentId = isLoggedIn && isLoggedIn.data ? isLoggedIn.data.data.id : null;
@@ -273,6 +274,33 @@ const HomePage = () => {
         }
         );
     }, [isLoggedIn]);
+
+
+    // Anuncios
+
+    useEffect(() => {
+        setIsLoading(true);
+
+        GetAnunciosApi({
+            most_liked: "1",
+            onSuccess: (response) => {
+                const Anuncios = response.data;
+
+                console.log(Anuncios);
+
+                setIsLoading(false);
+                setGetAnuncios(Anuncios);
+            },
+            onError: (error) => {
+                console.log(error);
+            }
+        }
+        );
+    }, [isLoggedIn]);
+
+
+
+
 
     // GET ARTICLES
 

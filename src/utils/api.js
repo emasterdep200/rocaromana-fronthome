@@ -7,6 +7,9 @@ export const GET_SLIDERS = "get_slider"
 export const GET_CATEGORES = "get_categories"
 export const GET_PROPETRES = "get_property"
 export const GET_ARTICLES = "get_articles"
+
+export const GET_ANUNCIOS = 'get_anuncios'
+
 export const GET_CITYS_DATA = "get-cities-data"
 export const ADD_FAVOURITE = "add_favourite"
 export const GET_LANGUAGES = "get_languages"
@@ -146,6 +149,22 @@ export const getSliderApi = () => {
 
     return {
         url: `${GET_SLIDERS}`,
+        method: "GET",
+        params: {
+
+        },
+        authorizationHeader: false,
+
+    }
+}
+
+
+// GET ANUNCIOS
+
+export const getAnuncios = () => {
+
+    return {
+        url: `${GET_ANUNCIOS}`,
         method: "GET",
         params: {
 

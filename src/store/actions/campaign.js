@@ -4,6 +4,7 @@ import {
     getSliderApi,
     update_profile,
     getArticlesApi,
+    getAnuncios,
     getCountByCitys,
     addFavourite,
     ContactUs,
@@ -172,6 +173,29 @@ export const GetAllArticlesApi = ({
     store.dispatch(
         apiCallBegan({
             ...getArticlesApi(id, category_id, slug_id, limit, offset),
+            displayToast: false,
+            onStart,
+            onSuccess,
+            onError,
+        })
+    );
+};
+
+
+// GET_ARTICLES
+export const GetAnunciosApi = ({
+    id = "",
+    category_id = "",
+    slug_id = "",
+    limit = "",
+    offset = "",
+    onSuccess = () => { },
+    onError = () => { },
+    onStart = () => { }
+}) => {
+    store.dispatch(
+        apiCallBegan({
+            ...getAnuncios(),
             displayToast: false,
             onStart,
             onSuccess,
