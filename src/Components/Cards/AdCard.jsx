@@ -109,23 +109,6 @@ function AdCard({ ele, removeCard, onImageLoad }) {
                 <div className="verticle_card_img_div">
                     <Image loading="lazy" className="card-img" id="verticle_card_img" src={ele?.title_image} alt="no_img" width={200} height={200} onLoad={handleImageLoad} onError={placeholderImage} />
                 </div>
-                {/* <div className="card-img-overlay">
-                </div> */}
-
-                <div className="card-body">
-                    <div className="feature_card_mainbody">
-                        <div className="cate_image">
-                            {themeEnabled ? (
-
-                                <ImageToSvg imageUrl={ele?.category && ele?.category.image} className="custom-svg" />
-                            ) : (
-                                <Image loading="lazy" src={ele?.category && ele?.category.image} alt="no_img" width={20} height={20} onError={placeholderImage} />
-                            )}
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div >
     );
