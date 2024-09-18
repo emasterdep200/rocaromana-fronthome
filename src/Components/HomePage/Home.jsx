@@ -7,9 +7,10 @@ import Image from "next/image";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
+import "swiper/css/autoplay";
 import "swiper/css/pagination";
 // import required modules
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import MobileHeadline from "../MobileHeadlines/MobileHeadline";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
@@ -1138,7 +1139,7 @@ const HomePage = () => {
                                         pagination={{
                                             clickable: true,
                                         }}
-                                        modules={[FreeMode, Pagination]}
+                                        modules={[FreeMode, Pagination, Autoplay]}
                                         className="most-view-swiper"
                                         breakpoints={breakpointsMostFav}
                                     >
@@ -1154,6 +1155,7 @@ const HomePage = () => {
                                                 }}
                                                 modules={[FreeMode, Pagination]}
                                                 className="most-view-swiper"
+                                                autoplay={{ delay: 1000 }}
                                                 breakpoints={breakpointsMostFav}
                                             >
                                                 {Array.from({ length: 6 }).map((_, index) => (
