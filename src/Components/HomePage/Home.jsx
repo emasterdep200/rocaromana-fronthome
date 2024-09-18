@@ -1110,7 +1110,7 @@ const HomePage = () => {
 
                 {/* ===== ADS SECTION =======  */}
 
-                {getMostFavProperties && getMostFavProperties?.length > 0 ? (
+                {getAnuncios && getAnuncios?.length > 0 ? (
                         <section id="most_fav">
                             <div className="container">
                                 <div className="most_fav_header">
@@ -1165,9 +1165,9 @@ const HomePage = () => {
                                                 ))}
                                             </Swiper>
                                         ) : (
-                                            getMostFavProperties?.map((ele, index) => (
+                                            getAnuncios?.map((ele, index) => (
                                                 <SwiperSlide id="most-view-swiper-slider" key={index}>
-                                                    <Link href="/properties-details/[slug]" as={`/properties-details/${ele.slug_id}`} passHref>
+                                                    <Link href="{ele.link}" as={ele.link} target="_blank" passHref>
                                                         <AdCard ele={ele} />
                                                     </Link>
                                                 </SwiperSlide>
