@@ -105,9 +105,9 @@ function AdCard({ ele, removeCard, onImageLoad }) {
 
     return (
         <div className="verticle_card">
-            <div className="card verticle_main_card">
-                <div className="verticle_card_img_div">
-                    <Image loading="lazy" className="card-img" id="verticle_card_img" src={ele?.title_image} alt="no_img" width={200} height={280} onLoad={handleImageLoad} onError={placeholderImage} />
+            <div className="card ad_main_card">
+                <div className="ad_card_img_div">
+                    <Image loading="lazy" className="card-img" id="ad_card_img" src={ele?.title_image} alt="no_img" width={200} height={330} onLoad={handleImageLoad} onError={placeholderImage} />
                 </div>
             </div>
         </div >
