@@ -37,6 +37,7 @@ export const protectedRoutes = [
     '/user-register/',
     '/user/profile/',
     '/user/favorites-properties/',
-    '/user/personalize-feed/'
+    '/user/personalize-feed/',
+    '/user/publicidad/'
 
 ]
