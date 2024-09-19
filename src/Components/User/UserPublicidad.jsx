@@ -40,7 +40,7 @@ const UserPublicidad = () => {
     // api call
     useEffect(() => {
         setIsLoading(true);
-        GetAnunciosApi({
+        getAddedPropertiesApi({
             is_promoted: "1",
             offset: offsetdata.toString(),
             limit: limit.toString(),
