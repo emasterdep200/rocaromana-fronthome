@@ -1119,7 +1119,7 @@ const HomePage = () => {
                                 <div className="most_fav_header">
                                     <div>
                                         <h3 className="headline">
-                                            Anuncios
+                                            Publicidad
                                         </h3>
                                     </div>
                                 </div>
@@ -1127,7 +1127,7 @@ const HomePage = () => {
                                     <MobileHeadline
                                         data={{
                                             start:'',
-                                            center: "Anuncios",
+                                            center: "Publicidad",
                                             end: translate("favoritas"),
                                             link: "",
                                         }}
