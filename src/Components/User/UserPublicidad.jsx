@@ -69,7 +69,7 @@ const UserPublicidad = () => {
         <VerticleLayout>
             <div className="container">
                 <div className="tranction_title">
-                    <h1>{translate("myPubs")}</h1>
+                    <h1>{translate("myPubs")}</h1> <button class="btn">Nuevo anuncio</button>
                 </div>
 
                 <div className="table_content card bg-white">
