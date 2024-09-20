@@ -10545,7 +10545,7 @@ button.learn-more-project .button-text {
 
 .black_button{
   display: inline-table;
-  background: #000000;
+  background: #000000 !important;
   height: 45px;
-  color: #fff;
+  color: #fff !important;
 }
