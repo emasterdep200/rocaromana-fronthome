@@ -68,7 +68,7 @@ const UserPublicidad = () => {
     return (
         <VerticleLayout>
             <div className="container">
-                <div className="tranction_title">
+                <div className="tranction_title lateral_button">
                     <h1>{translate("myPubs")}</h1> <button class="btn">Nuevo anuncio</button>
                 </div>
 

@@ -10533,3 +10533,9 @@ button.learn-more-project .button-text {
 .verticle_card .verticle_main_card .sell_teg{
   width: 68px !important;
 }
+
+
+.lateral_button{
+  display: flex;
+  justify-content: space-between;
+}
