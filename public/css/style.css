@@ -10538,4 +10538,14 @@ button.learn-more-project .button-text {
 .lateral_button{
   display: flex;
   justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.black_button{
+  display: inline-table;
+  background: #000000;
+  height: 45px;
+  color: #fff;
 }
