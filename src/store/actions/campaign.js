@@ -5,6 +5,7 @@ import {
     update_profile,
     getArticlesApi,
     getAnuncios,
+    getAnunciosById,
     getCountByCitys,
     addFavourite,
     ContactUs,
@@ -203,6 +204,31 @@ export const GetAnunciosApi = ({
         })
     );
 };
+
+
+// GET_ARTICLES
+export const GetAnunciosById = ({
+    id = "",
+    category_id = "",
+    slug_id = "",
+    limit = "",
+    offset = "",
+    onSuccess = () => { },
+    onError = () => { },
+    onStart = () => { }
+}) => {
+    store.dispatch(
+        apiCallBegan({
+            ...getAnunciosById(),
+            displayToast: false,
+            onStart,
+            onSuccess,
+            onError,
+        })
+    );
+};
+
+
 
 // GET_COUNT_BY_CITIES_CATEGORIS
 export const GetCountByCitysApi = ({

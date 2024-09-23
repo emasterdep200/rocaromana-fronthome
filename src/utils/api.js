@@ -9,6 +9,7 @@ export const GET_PROPETRES = "get_property"
 export const GET_ARTICLES = "get_articles"
 
 export const GET_ANUNCIOS = 'get_anuncios'
+export const GET_ANUNCIOS_BY_ID = 'get_anuncion_by_id'
 
 export const GET_CITYS_DATA = "get-cities-data"
 export const ADD_FAVOURITE = "add_favourite"
@@ -170,6 +171,21 @@ export const getAnuncios = () => {
 
         },
         authorizationHeader: false,
+
+    }
+}
+
+// GET ANUNCIOS BY ID
+
+export const getAnunciosById = () => {
+    let getuserid = getUserID();
+    return {
+        url: `${GET_ANUNCIOS_BY_ID}`,
+        method: "GET",
+        params: {
+
+        },
+        authorizationHeader: getuserid ? true : false,
 
     }
 }
