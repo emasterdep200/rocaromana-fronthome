@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
-import { GetFeturedListingsApi, getAddedPropertiesApi, GetAnunciosApi } from "@/store/actions/campaign";
+import { GetFeturedListingsApi, getAddedPropertiesApi, GetAnunciosById } from "@/store/actions/campaign";
 import toast from "react-hot-toast";
 import { settingsData } from "@/store/reducer/settingsSlice";
 import { useSelector } from "react-redux";
@@ -40,7 +40,7 @@ const UserPublicidad = () => {
     // api call
     useEffect(() => {
         setIsLoading(true);
-        GetAnunciosApi({
+        GetAnunciosById({
             is_promoted: "1",
             offset: offsetdata.toString(),
             limit: limit.toString(),
