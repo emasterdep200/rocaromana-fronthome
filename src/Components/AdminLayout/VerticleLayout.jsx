@@ -615,6 +615,30 @@ export default function VerticleLayout(props) {
                         </Link>
                     </ListItem>
 
+                    <ListItem disablePadding sx={{ display: "block" }} className={isRouteActive('/user/advertisement') ? 'drawer_list_item_active' : 'drawer_list_item'}>
+                        <Link href="/user/advertisement">
+                            <ListItemButton
+                                sx={{
+                                    minHeight: 30,
+                                    justifyContent: open ? "initial" : "center",
+                                    px: 2.5,
+                                }}
+                            >
+                                <ListItemIcon
+                                    className={isRouteActive('/user/advertisement') ? 'drawer_list_icon_active' : 'drawer_list_icon'}
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : "auto",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <RiAdvertisementLine size={23} />
+                                </ListItemIcon>
+                                <ListItemText primary={translate("myAdvertisement")} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </Link>
+                    </ListItem>
+
                     <ListItem disablePadding sx={{ display: "block" }} className={isRouteActive('/user/projects') ? 'drawer_list_item_active' : 'drawer_list_item'}>
                         <Link href="/user/projects">
                             <ListItemButton
