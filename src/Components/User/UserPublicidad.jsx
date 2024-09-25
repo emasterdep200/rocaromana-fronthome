@@ -41,9 +41,7 @@ const UserPublicidad = () => {
     useEffect(() => {
         setIsLoading(true);
         GetAnunciosById({
-            is_promoted: "1",
-            offset: offsetdata.toString(),
-            limit: limit.toString(),
+            user_id: userCurrentId,
             onSuccess: (response) => {
                 setTotal(response.total);
                 setView(response.total_clicks);

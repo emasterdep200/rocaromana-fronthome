@@ -208,18 +208,14 @@ export const GetAnunciosApi = ({
 
 // GET_ARTICLES
 export const GetAnunciosById = ({
-    id = "",
-    category_id = "",
-    slug_id = "",
-    limit = "",
-    offset = "",
+    user_id = "",
     onSuccess = () => { },
     onError = () => { },
     onStart = () => { }
 }) => {
     store.dispatch(
         apiCallBegan({
-            ...getAnunciosById(),
+            ...getAnunciosById(user_id),
             displayToast: false,
             onStart,
             onSuccess,
