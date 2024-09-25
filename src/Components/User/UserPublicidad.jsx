@@ -55,7 +55,7 @@ const UserPublicidad = () => {
             }
         }
         )
-    }, [offsetdata, isLoggedIn]);
+    }, [offsetdata, isLoggedIn, userCurrentId]);
 
     const handlePageChange = (selectedPage) => {
         const newOffset = selectedPage.selected * limit;
