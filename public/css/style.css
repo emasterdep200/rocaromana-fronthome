@@ -10549,3 +10549,12 @@ button.learn-more-project .button-text {
   height: 45px;
   color: #fff !important;
 }
+
+
+#main_listing_img {
+  width: 279px !important;
+  border-radius: 8px;
+  position: relative;
+  aspect-ratio: 1 / .5;
+  height: 300px !important;
+}
