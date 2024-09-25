@@ -19,6 +19,7 @@ import { placeholderImage, translate } from "@/utils";
 import { languageData } from "@/store/reducer/languageSlice";
 import Image from "next/image";
 import dynamic from "next/dynamic.js";
+import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
 const VerticleLayout = dynamic(() => import('../../../src/Components/AdminLayout/VerticleLayout.jsx'), { ssr: false })
 
 
@@ -36,13 +37,15 @@ const UserPublicidad = () => {
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const lang = useSelector(languageData);
 
+    const userData = useSelector(userSignUpData);
+    const user = userData?.data?.data
+
     useEffect(() => { }, [lang]);
     // api call
     useEffect(() => {
-        console.log(userCurrentId);
         setIsLoading(true);
         GetAnunciosById({
-            user_id: userCurrentId,
+            user_id: user?.id,
             onSuccess: (response) => {
                 setTotal(response.total);
                 setView(response.total_clicks);
@@ -56,7 +59,7 @@ const UserPublicidad = () => {
             }
         }
         )
-    }, [offsetdata, isLoggedIn, userCurrentId]);
+    }, [offsetdata, isLoggedIn, user]);
 
     const handlePageChange = (selectedPage) => {
         const newOffset = selectedPage.selected * limit;
