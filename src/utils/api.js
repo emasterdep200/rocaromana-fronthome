@@ -183,9 +183,9 @@ export const getAnunciosById = () => {
         url: `${GET_ANUNCIOS_BY_ID}`,
         method: "GET",
         params: {
-
+            user_id: getuserid
         },
-        authorizationHeader: getuserid ? true : false,
+        authorizationHeader: true,
 
     }
 }

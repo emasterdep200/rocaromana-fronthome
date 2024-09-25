@@ -307,7 +307,7 @@ const SubscriptionPlan = () => {
               
                             if (!res.error) {
                                 router.push("/");
-                                toast.success(res.message);
+                                toast.success('Has activado nuestro plan ROCA GRATIS, ahora puedes ir a publicar.');
                             }
                         },
                         (err) => {
