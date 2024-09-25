@@ -39,6 +39,7 @@ const UserPublicidad = () => {
     useEffect(() => { }, [lang]);
     // api call
     useEffect(() => {
+        console.log(userCurrentId);
         setIsLoading(true);
         GetAnunciosById({
             user_id: userCurrentId,
