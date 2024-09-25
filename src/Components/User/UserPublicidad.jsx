@@ -48,10 +48,9 @@ const UserPublicidad = () => {
             user_id: user?.id,
             onSuccess: (response) => {
                 setTotal(response.total);
-                setView(response.total_clicks);
-                const FeaturedListingData = response.data;
+                const DataPub = response.data;
                 setIsLoading(false);
-                setData(FeaturedListingData);
+                setData(DataPub);
             },
             onError: (error) => {
                 setIsLoading(false);
@@ -114,33 +113,27 @@ const UserPublicidad = () => {
                                             <TableCell component="th" scope="row" sx={{ width: "40%" }}>
                                                 <div className="card" id="listing_card">
                                                     <div className="listing_card_img">
-                                                        <Image loading="lazy" src={elem?.title_image} alt="no_img" id="main_listing_img" width={150} height={0} style={{ height: "auto" }} onError={placeholderImage} />
+                                                        <Image loading="lazy" src={elem?.imagen} alt="no_img" id="main_listing_img" width={150} height={0} style={{ height: "auto" }} onError={placeholderImage} />
                                                         <span className="listing_type_feature_tag">
                                                             <FaCrown />
                                                         </span>
                                                     </div>
                                                     <div className="listing_card_body">
-                                                        <span className="listing_prop_title">{elem?.title}</span>
+                                                        <span className="listing_prop_title">{elem?.titulo}</span>
                                                         <span className="listing_prop_loc">
-                                                            {elem?.city} {elem?.state} {elem?.country}
+                                                            {elem?.link}
                                                         </span>
                                                         <span className="listing_prop_pirce">
-                                                            {CurrencySymbol} {elem?.price}
+                                                            
                                                         </span>
                                                     </div>
                                                 </div>
                                             </TableCell>
 
                                             <TableCell align="center">
-                                                {elem?.advertisement[0].status === 0 ? (
-                                                    <span className="active_status">{translate("approved")}</span>
-                                                ) : elem?.advertisement[0].status === 1 ? (
-                                                    <span className="panding_status">{translate("pending")}</span>
-                                                ) : (
-                                                    <span className="inactive_status">{translate("rejected")}</span>
-                                                )}
+                                                {elem?.estado}
                                             </TableCell>
-                                            <TableCell align="center">{elem?.advertisement[0].type}</TableCell>
+                                            <TableCell align="center"></TableCell>
                                         </TableRow>
                                     ))
                                 ) : (
