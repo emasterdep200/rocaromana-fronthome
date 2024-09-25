@@ -177,13 +177,13 @@ export const getAnuncios = () => {
 
 // GET ANUNCIOS BY ID
 
-export const getAnunciosById = () => {
+export const getAnunciosById = (byId) => {
     let getuserid = getUserID();
     return {
         url: `${GET_ANUNCIOS_BY_ID}`,
         method: "GET",
         params: {
-            user_id: getuserid
+            user_id: byId
         },
         authorizationHeader: true,
 
