@@ -9,11 +9,12 @@ import Image from "next/image";
 import { ImageToSvg } from "./ImageToSvg";
 import Swal from "sweetalert2";
 import LoginModal from "../LoginModal/LoginModal";
+import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
 
 const HorizontalCard = ({ ele }) => {
     const priceSymbol = useSelector(settingsData);
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
-    const isLoggedIn = useSelector((state) => state.User_signup);
+    const isLoggedIn = useSelector(userSignUpData);
 
     const DummyImgData = useSelector(settingsData);
     const PlaceHolderImg = DummyImgData?.web_placeholder_logo;

@@ -80,7 +80,7 @@ export const formatPriceAbbreviated = (price) => {
   if (price >= 1000000000000) {
     return (price / 1000000000000).toFixed(1) + 'T';
   } else if (price >= 1000000000) {
-    return (price / 1000000000).toFixed(1) + 'B';
+    return (price / 1000000000).toFixed(1) + 'MM';
   } else if (price >= 1000000) {
     return (price / 1000000).toFixed(1) + 'M';
   } else if (price >= 1000) {
