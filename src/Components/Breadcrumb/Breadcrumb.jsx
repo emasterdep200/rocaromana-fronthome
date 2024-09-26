@@ -12,7 +12,7 @@ import { Tooltip, Dropdown, Menu } from "antd";
 import { useRouter } from "next/router";
 import { RxShare2 } from "react-icons/rx";
 import { CiLink } from "react-icons/ci";
-
+import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
 
 
 import {
@@ -34,7 +34,7 @@ const Breadcrumb = (props) => {
     const priceSymbol = useSelector(settingsData);
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const CompanyName = priceSymbol && priceSymbol.company_name
-    const isLoggedIn = useSelector((state) => state.User_signup);
+    const isLoggedIn = useSelector(userSignUpData);
     const userCurrentId = isLoggedIn && isLoggedIn.data ? isLoggedIn.data.data.id : null;
     const [isLiked, setIsLiked] = useState(props.data && props.data.is_favourite);
 
