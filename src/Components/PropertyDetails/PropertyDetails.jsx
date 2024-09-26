@@ -30,6 +30,7 @@ import { message } from "antd";
 import LoginModal from "../LoginModal/LoginModal";
 import useSWR from "swr";
 import setPropertyTotalClicksApi from "@/hooks/setPropertyTotalClicksApi";
+import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
 
 
 const PropertyDetails = () => {
@@ -70,7 +71,7 @@ const PropertyDetails = () => {
 
 
     const lang = useSelector(languageData);
-    const isLoggedIn = useSelector((state) => state.User_signup);
+    const isLoggedIn = useSelector(userSignUpData);
     const SettingsData = useSelector(settingsData);
 
     const isPremiumUser = SettingsData && SettingsData?.is_premium
