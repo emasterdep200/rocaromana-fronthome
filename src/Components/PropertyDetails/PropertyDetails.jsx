@@ -272,6 +272,7 @@ const PropertyDetails = () => {
 
     const handleInterested = (e) => {
         e.preventDefault();
+        console.log(userCurrentId);
         if (userCurrentId) {
             intrestedPropertyApi(
                 getPropData.id,
