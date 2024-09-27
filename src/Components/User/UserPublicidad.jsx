@@ -199,17 +199,17 @@ const UserPublicidad = () => {
 
                     <div class="mb-3">
                         <label for="titulo" class="form-label">Título</label>
-                        <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required onBlur={Anounce.titulo()}/>
+                        <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required onChange={Anounce.titulo()}/>
                     </div>
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input type="file" class="form-control" id="imagen" accept="image/*" required onBlur={Anounce.imagen()}/>
+                        <input type="file" class="form-control" id="imagen" accept="image/*" required onChange={Anounce.imagen()}/>
                     </div>
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link</label>
-                        <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required onBlur={Anounce.link()}/>
+                        <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required onChange={Anounce.link()}/>
                     </div>
 
 
