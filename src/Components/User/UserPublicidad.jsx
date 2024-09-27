@@ -40,6 +40,7 @@ const UserPublicidad = () => {
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const lang = useSelector(languageData);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [closeModal, setCloseModal] = useState(false);
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
@@ -157,7 +158,7 @@ const UserPublicidad = () => {
             </div>
 
 
-            <Modal centered open={showAddModal} footer={null} >
+            <Modal centered open={showAddModal} footer={null} onCancel={closeModal}>
                 <div className="form-group">
                     <label>{translate("Reference")}</label>
                 </div>
