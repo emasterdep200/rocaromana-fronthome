@@ -75,7 +75,7 @@ const UserPublicidad = () => {
         <VerticleLayout>
             <div className="container">
                 <div className="tranction_title lateral_button">
-                    <h1>{translate("myPubs")}</h1> <button class="btn black_button" onClick={setShowAddModal(true)}>Nuevo anuncio</button>
+                    <h1>{translate("myPubs")}</h1> <button class="btn black_button" onClick={() => setShowAddModal(true)}>Nuevo anuncio</button>
                 </div>
 
                 <div className="table_content card bg-white">
@@ -158,6 +158,11 @@ const UserPublicidad = () => {
             </div>
 
 
+            <Modal centered open={showAddModal} footer={null} onCancel={closeModal}>
+                <div className="form-group">
+                    <label>{translate("Reference")}</label>
+                </div>
+            </Modal>
 
 
         </VerticleLayout>
