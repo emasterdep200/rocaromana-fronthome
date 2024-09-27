@@ -45,7 +45,8 @@ import {
     DeleteUserIntrest,
     getAddedProperties,
     getVentas,
-    getComisiones
+    getComisiones,
+    addAnuncio
 } from "@/utils/api";
 import { store } from "../store";
 import { apiCallBegan } from "./apiActions";
@@ -223,6 +224,28 @@ export const GetAnunciosById = ({
         })
     );
 };
+
+
+// ADD_ARTICLES
+export const AddAnuncio = ({
+    titulo = "",
+    imagen = "",
+    link   = "",
+    onSuccess = () => { },
+    onError = () => { },
+    onStart = () => { }
+}) => {
+    store.dispatch(
+        apiCallBegan({
+            ...addAnuncio(user_id),
+            displayToast: false,
+            onStart,
+            onSuccess,
+            onError,
+        })
+    );
+};
+
 
 
 

@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
-import { GetFeturedListingsApi, getAddedPropertiesApi, GetAnunciosById } from "@/store/actions/campaign";
+import { GetFeturedListingsApi, getAddedPropertiesApi, GetAnunciosById, AddAnuncio } from "@/store/actions/campaign";
 import toast from "react-hot-toast";
 import { settingsData } from "@/store/reducer/settingsSlice";
 import { useSelector } from "react-redux";
@@ -40,6 +40,12 @@ const UserPublicidad = () => {
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const lang = useSelector(languageData);
     const [showAddModal, setShowAddModal] = useState(false);
+
+    const [anounce, setAnounce] = useState({
+        titulo: '',
+        imagen: '',
+        link  : ''
+    });
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
@@ -73,6 +79,32 @@ const UserPublicidad = () => {
     const close = async () => {
         setShowAddModal(false);
     };
+
+
+    const Anounce = {
+        titulo : (event) => { setAnounce({...anounce, titulo:event.target.value});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event.target.value});  },
+        link   : (event) => { setAnounce({...anounce, link:event.target.value});  },
+        save   : (event) => {
+            setIsLoading(true);
+
+            AddAnuncio({
+                titulo: anounce?.titulo,
+                imagen: document.getElementById('imagen'),
+                link  : anounce?.link,
+                onSuccess: (response) => {
+                    console.log(response);
+                    setIsLoading(false);
+                },
+                onError: (error) => {
+                    setIsLoading(false);
+                    console.log(error);
+                }
+            }
+            )
+        }
+    }
+
 
     return (
         <VerticleLayout>
@@ -164,7 +196,7 @@ const UserPublicidad = () => {
             <Modal centered open={showAddModal} footer={null} onCancel={close}>
                 <div className="form-group">
                     <label>{translate("Crear anuncio.")}</label>
-                    
+
                     <div class="mb-3">
                         <label for="titulo" class="form-label">Título</label>
                         <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required />
@@ -180,16 +212,8 @@ const UserPublicidad = () => {
                         <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="estado" class="form-label">Estado</label>
-                        <select class="form-select" id="estado" required>
-                            <option value="">Selecciona un estado</option>
-                            <option value="activo">Activo</option>
-                            <option value="inactivo">Inactivo</option>
-                        </select>
-                    </div>
 
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="button" class="btn btn-primary pull-right">Enviar</button>
                 </div>
             </Modal>
 

@@ -10,6 +10,7 @@ export const GET_ARTICLES = "get_articles"
 
 export const GET_ANUNCIOS = 'get_anuncios'
 export const GET_ANUNCIOS_BY_ID = 'get_anuncion_by_id'
+export const ADD_ANUNCIO = 'add_anuncio'
 
 export const GET_CITYS_DATA = "get-cities-data"
 export const ADD_FAVOURITE = "add_favourite"
@@ -189,6 +190,28 @@ export const getAnunciosById = (byId) => {
 
     }
 }
+
+
+
+// ADD_ANUNCIO
+export const addAnuncio = (titulo,imagen,link) => {
+    let data = new FormData();
+    data.append('titulo', titulo);
+    data.append('imagen', imagen);
+    data.append('link', link);
+
+    return {
+        url: `${ADD_ANUNCIO}`,
+        method: "POST",
+        data,
+        authorizationHeader: true,
+    }
+}
+
+
+
+
+
 
 // GET CATEGORIES
 
