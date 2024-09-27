@@ -157,7 +157,7 @@ const UserPublicidad = () => {
             </div>
 
 
-            <Modal centered open={showAddModal} footer={null} onCancel={closePayuModal}>
+            <Modal centered open={showAddModal} footer={null} >
                 <div className="form-group">
                     <label>{translate("Reference")}</label>
                     <input
