@@ -160,13 +160,6 @@ const UserPublicidad = () => {
             <Modal centered open={showAddModal} footer={null} >
                 <div className="form-group">
                     <label>{translate("Reference")}</label>
-                    <input
-                    type="text"
-                    name="aid"
-                    onBlur={handleAid}
-                    className="form-control mb-2"
-                    required
-                    />
                 </div>
             </Modal>
 
