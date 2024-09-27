@@ -158,11 +158,6 @@ const UserPublicidad = () => {
             </div>
 
 
-            <Modal centered open={showAddModal} footer={null} onCancel={closeModal}>
-                <div className="form-group">
-                    <label>{translate("Reference")}</label>
-                </div>
-            </Modal>
 
 
         </VerticleLayout>
