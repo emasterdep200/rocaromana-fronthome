@@ -71,6 +71,10 @@ const UserPublicidad = () => {
         window.scrollTo(0, 0);
     };
 
+    const close = async () => {
+        setCloseModal(false);
+    };
+
     return (
         <VerticleLayout>
             <div className="container">
@@ -158,7 +162,7 @@ const UserPublicidad = () => {
             </div>
 
 
-            <Modal centered open={showAddModal} footer={null} onCancel={closeModal}>
+            <Modal centered open={showAddModal} footer={null} onCancel={close}>
                 <div className="form-group">
                     <label>{translate("Reference")}</label>
                 </div>
