@@ -82,9 +82,9 @@ const UserPublicidad = () => {
 
 
     const Anounce = {
-        titulo : (event) => { setAnounce({...anounce, titulo:event.target.value});  },
-        imagen : (event) => { setAnounce({...anounce, imagen:event.target.value});  },
-        link   : (event) => { setAnounce({...anounce, link:event.target.value});  },
+        titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.value});  },
+        link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
         save   : (event) => {
             setIsLoading(true);
 
