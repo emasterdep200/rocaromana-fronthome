@@ -199,21 +199,21 @@ const UserPublicidad = () => {
 
                     <div class="mb-3">
                         <label for="titulo" class="form-label">Título</label>
-                        <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required />
+                        <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required onBlur={anounce.titulo()}/>
                     </div>
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input type="file" class="form-control" id="imagen" accept="image/*" required />
+                        <input type="file" class="form-control" id="imagen" accept="image/*" required onBlur={anounce.imagen()}/>
                     </div>
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link</label>
-                        <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required />
+                        <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required onBlur={anounce.link()}/>
                     </div>
 
 
-                    <button type="button" class="btn btn-primary pull-right">Enviar</button>
+                    <button type="button" class="btn btn-primary pull-right" onClick={anounce.save()}>Enviar</button>
                 </div>
             </Modal>
 
