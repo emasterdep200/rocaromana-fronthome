@@ -40,7 +40,6 @@ const UserPublicidad = () => {
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const lang = useSelector(languageData);
     const [showAddModal, setShowAddModal] = useState(false);
-    const [closeModal, setCloseModal] = useState(false);
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
@@ -72,7 +71,7 @@ const UserPublicidad = () => {
     };
 
     const close = async () => {
-        setCloseModal(false);
+        setShowAddModal(false);
     };
 
     return (
@@ -164,7 +163,33 @@ const UserPublicidad = () => {
 
             <Modal centered open={showAddModal} footer={null} onCancel={close}>
                 <div className="form-group">
-                    <label>{translate("Reference")}</label>
+                    <label>{translate("Crear anuncio.")}</label>
+                    
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input type="file" class="form-control" id="imagen" accept="image/*" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="link" class="form-label">Link</label>
+                        <input type="url" class="form-control" id="link" placeholder="Ingresa el link" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select class="form-select" id="estado" required>
+                            <option value="">Selecciona un estado</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
             </Modal>
 
