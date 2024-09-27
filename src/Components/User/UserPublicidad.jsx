@@ -90,7 +90,7 @@ const UserPublicidad = () => {
 
             AddAnuncio({
                 titulo: anounce?.titulo,
-                imagen: document.getElementById('imagen'),
+                imagen: Document.querySelector('input[name=imagen]').files[0],
                 link  : anounce?.link,
                 onSuccess: (response) => {
                     console.log(response);
