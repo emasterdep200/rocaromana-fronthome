@@ -55,7 +55,7 @@ const SliderComponent = ({ sliderData }) => {
               <div id="herotexts">
                 <div>
                   <span id="priceteg">
-                    {CurrencySymbol} {formatNumberWithCommas(single.property_price)}
+                    {formatNumberWithCommas(single.property_price)}
                   </span>
                   <h1 id="hero_headlines">{single.property_title}</h1>
                   <div className="hero_text_parameters">

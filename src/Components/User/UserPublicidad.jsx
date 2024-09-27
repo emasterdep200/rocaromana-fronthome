@@ -20,6 +20,9 @@ import { languageData } from "@/store/reducer/languageSlice";
 import Image from "next/image";
 import dynamic from "next/dynamic.js";
 import { userSignUpData, loginLoaded } from '@/store/reducer/authSlice';
+import { Modal } from "antd";
+
+
 const VerticleLayout = dynamic(() => import('../../../src/Components/AdminLayout/VerticleLayout.jsx'), { ssr: false })
 
 
@@ -36,6 +39,7 @@ const UserPublicidad = () => {
     const priceSymbol = useSelector(settingsData);
     const CurrencySymbol = priceSymbol && priceSymbol.currency_symbol;
     const lang = useSelector(languageData);
+    const [showAddModal, setShowAddModal] = useState(false);
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
@@ -70,7 +74,7 @@ const UserPublicidad = () => {
         <VerticleLayout>
             <div className="container">
                 <div className="tranction_title lateral_button">
-                    <h1>{translate("myPubs")}</h1> <button class="btn black_button">Nuevo anuncio</button>
+                    <h1>{translate("myPubs")}</h1> <button class="btn black_button" onClick={setShowAddModal(true)}>Nuevo anuncio</button>
                 </div>
 
                 <div className="table_content card bg-white">
@@ -151,8 +155,29 @@ const UserPublicidad = () => {
                     ) : null}
                 </div>
             </div>
+
+
+            <Modal centered open={showAddModal} footer={null} onCancel={closePayuModal}>
+                <div className="form-group">
+                    <label>{translate("Reference")}</label>
+                    <input
+                    type="text"
+                    name="aid"
+                    onBlur={handleAid}
+                    className="form-control mb-2"
+                    required
+                    />
+                </div>
+            </Modal>
+
+
         </VerticleLayout>
+
+
+
     );
+
+
 };
 
 export default UserPublicidad;
