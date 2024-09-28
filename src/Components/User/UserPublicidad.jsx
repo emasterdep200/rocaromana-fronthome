@@ -82,37 +82,30 @@ const UserPublicidad = () => {
         setShowAddModal(false);
     };
 
+
     const Anounce = {
         titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
-        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files[0]});  },
         link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
-    };
+        save   : (event) => {
 
-    const SendPub = async () => {
-        console.log(anounce);
-    };
+            setIsLoading(true);
 
-    useEffect(() => { 
-
-        setIsLoading(true);
-
-        // AddAnuncio({
-        //     titulo: anounce?.titulo,
-        //     imagen: anounce.imagen,
-        //     link  : anounce?.link,
-        //     onSuccess: (response) => {
-        //         console.log(response);
-        //         setIsLoading(false);
-        //     },
-        //     onError: (error) => {
-        //         setIsLoading(false);
-        //         console.log(error);
-        //     }
-        // })
-
-    }, []);
-
-
+            AddAnuncio({
+                titulo: anounce?.titulo,
+                imagen: anounce.imagen,
+                link  : anounce?.link,
+                onSuccess: (response) => {
+                    console.log(response);
+                    setIsLoading(false);
+                },
+                onError: (error) => {
+                    setIsLoading(false);
+                    console.log(error);
+                }
+            })
+        }
+    }
 
 
     return (
@@ -222,7 +215,7 @@ const UserPublicidad = () => {
                     </div>
 
 
-                    <button type="button" class="btn btn-primary pull-right" onClick={SendPub}>Enviar</button>
+                    <button type="button" class="btn btn-primary pull-right" onClick={Anounce.save}>Enviar</button>
                 </div>
             </Modal>
 
