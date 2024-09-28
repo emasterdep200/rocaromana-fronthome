@@ -57,7 +57,6 @@ const UserPublicidad = () => {
     useEffect(() => {
         setIsLoading(true);
         GetAnunciosById({
-            user_id: user?.id,
             onSuccess: (response) => {
                 setTotal(response.total);
                 const DataPub = response.data;
@@ -85,7 +84,7 @@ const UserPublicidad = () => {
 
     const Anounce = {
         titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
-        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files[0]});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
         link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
         save   : (event) => {
 
