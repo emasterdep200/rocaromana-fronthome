@@ -57,6 +57,7 @@ const UserPublicidad = () => {
     useEffect(() => {
         setIsLoading(true);
         GetAnunciosById({
+            user_id: user?.id,
             onSuccess: (response) => {
                 setTotal(response.total);
                 const DataPub = response.data;
@@ -90,20 +91,19 @@ const UserPublicidad = () => {
 
             setIsLoading(true);
 
-            AddAnuncio({
-                titulo: anounce?.titulo,
-                imagen: anounce.imagen,
-                link  : anounce?.link,
-                onSuccess: (response) => {
-                    console.log(response);
-                    setIsLoading(false);
-                },
-                onError: (error) => {
-                    setIsLoading(false);
-                    console.log(error);
-                }
-            }
-            )
+            // AddAnuncio({
+            //     titulo: anounce?.titulo,
+            //     imagen: anounce.imagen,
+            //     link  : anounce?.link,
+            //     onSuccess: (response) => {
+            //         console.log(response);
+            //         setIsLoading(false);
+            //     },
+            //     onError: (error) => {
+            //         setIsLoading(false);
+            //         console.log(error);
+            //     }
+            // })
         }
     }
 
