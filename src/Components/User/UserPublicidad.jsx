@@ -90,9 +90,10 @@ const UserPublicidad = () => {
 
     const Anounce = {
         titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
-        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.value});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files[0]});  },
         link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
         save   : (event) => {
+
             setIsLoading(true);
 
             AddAnuncio({
@@ -211,7 +212,7 @@ const UserPublicidad = () => {
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        {isClient && <input type="file" class="form-control" id="imagen" ref={imageInputRef} accept="image/*" required onChange={Anounce.imagen()}/>}
+                        <input type="file" class="form-control" id="imagen" accept="image/*" required onChange={Anounce.imagen()}/>
                     </div>
 
                     <div class="mb-3">
