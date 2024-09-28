@@ -82,33 +82,35 @@ const UserPublicidad = () => {
         setShowAddModal(false);
     };
 
-    const Anounce = '';
+    const Anounce = {
+        titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
+        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
+        link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
+    };
+
+    const SendPub = (event) => {
+        console.log(anounce);
+    }
 
     useEffect(() => { 
-        Anounce = {
-            titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
-            imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
-            link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
-            save   : (event) => {
 
-                setIsLoading(true);
+        setIsLoading(true);
 
-                AddAnuncio({
-                    titulo: anounce?.titulo,
-                    imagen: anounce.imagen,
-                    link  : anounce?.link,
-                    onSuccess: (response) => {
-                        console.log(response);
-                        setIsLoading(false);
-                    },
-                    onError: (error) => {
-                        setIsLoading(false);
-                        console.log(error);
-                    }
-                })
-            }
-        }
-    }, [Anounce]);
+        // AddAnuncio({
+        //     titulo: anounce?.titulo,
+        //     imagen: anounce.imagen,
+        //     link  : anounce?.link,
+        //     onSuccess: (response) => {
+        //         console.log(response);
+        //         setIsLoading(false);
+        //     },
+        //     onError: (error) => {
+        //         setIsLoading(false);
+        //         console.log(error);
+        //     }
+        // })
+
+    }, []);
 
 
 
