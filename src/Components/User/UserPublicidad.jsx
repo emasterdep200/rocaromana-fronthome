@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { useRef } from 'react';
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -81,6 +82,8 @@ const UserPublicidad = () => {
     };
 
 
+    const imageInputRef = useRef<HTMLInputElement | null>(null);
+
     const Anounce = {
         titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
         imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.value});  },
@@ -90,7 +93,7 @@ const UserPublicidad = () => {
 
             AddAnuncio({
                 titulo: anounce?.titulo,
-                imagen: Document.querySelector('input[name=imagen]').files[0],
+                imagen: fileInputRef.current ? fileInputRef.current.files[0] : [],
                 link  : anounce?.link,
                 onSuccess: (response) => {
                     console.log(response);
@@ -204,7 +207,7 @@ const UserPublicidad = () => {
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input type="file" class="form-control" id="imagen" accept="image/*" required onChange={Anounce.imagen()}/>
+                        <input type="file" class="form-control" id="imagen" ref={imageInputRef} accept="image/*" required onChange={Anounce.imagen()}/>
                     </div>
 
                     <div class="mb-3">
