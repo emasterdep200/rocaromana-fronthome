@@ -50,8 +50,10 @@ const UserPublicidad = () => {
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => { }, [lang]);
+
     // api call
     useEffect(() => {
         setIsLoading(true);
@@ -67,8 +69,10 @@ const UserPublicidad = () => {
                 setIsLoading(false);
                 console.log(error);
             }
-        }
-        )
+        })
+
+        setIsClient(true);
+
     }, [offsetdata, isLoggedIn, user]);
 
     const handlePageChange = (selectedPage) => {
@@ -93,7 +97,7 @@ const UserPublicidad = () => {
 
             AddAnuncio({
                 titulo: anounce?.titulo,
-                imagen: fileInputRef.current ? fileInputRef.current.files[0] : [],
+                imagen: imageInputRef.current ? imageInputRef.current.files[0] : [],
                 link  : anounce?.link,
                 onSuccess: (response) => {
                     console.log(response);
@@ -207,7 +211,7 @@ const UserPublicidad = () => {
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input type="file" class="form-control" id="imagen" ref={imageInputRef} accept="image/*" required onChange={Anounce.imagen()}/>
+                        {isClient && <input type="file" class="form-control" id="imagen" ref={imageInputRef} accept="image/*" required onChange={Anounce.imagen()}/>}
                     </div>
 
                     <div class="mb-3">
