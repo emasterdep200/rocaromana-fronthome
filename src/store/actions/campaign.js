@@ -231,13 +231,14 @@ export const AddAnuncio = ({
     titulo = "",
     imagen = "",
     link   = "",
+    byid   = "",
     onSuccess = () => { },
     onError = () => { },
     onStart = () => { }
 }) => {
     store.dispatch(
         apiCallBegan({
-            ...addAnuncio(titulo, imagen, link),
+            ...addAnuncio(titulo, imagen, link, byid),
             displayToast: false,
             onStart,
             onSuccess,

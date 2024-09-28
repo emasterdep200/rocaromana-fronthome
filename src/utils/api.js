@@ -194,11 +194,12 @@ export const getAnunciosById = (byId) => {
 
 
 // ADD_ANUNCIO
-export const addAnuncio = (titulo,imagen,link) => {
+export const addAnuncio = (titulo,imagen,link, byid) => {
     let data = new FormData();
     data.append('titulo', titulo);
     data.append('imagen', imagen);
     data.append('link', link);
+    data.append('owner', byid)
 
     return {
         url: `${ADD_ANUNCIO}`,

@@ -95,6 +95,7 @@ const UserPublicidad = () => {
                 titulo: anounce?.titulo,
                 imagen: anounce.imagen,
                 link  : anounce?.link,
+                byid  : user?.id,
                 onSuccess: (response) => {
                     console.log(response);
                     setIsLoading(false);
