@@ -83,29 +83,29 @@ const UserPublicidad = () => {
     };
 
 
-    const Anounce = {
-        titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
-        imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
-        link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
-        save   : (event) => {
+    // const Anounce = {
+    //     titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
+    //     imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
+    //     link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
+    //     save   : (event) => {
 
-            setIsLoading(true);
+    //         setIsLoading(true);
 
-            // AddAnuncio({
-            //     titulo: anounce?.titulo,
-            //     imagen: anounce.imagen,
-            //     link  : anounce?.link,
-            //     onSuccess: (response) => {
-            //         console.log(response);
-            //         setIsLoading(false);
-            //     },
-            //     onError: (error) => {
-            //         setIsLoading(false);
-            //         console.log(error);
-            //     }
-            // })
-        }
-    }
+    //         AddAnuncio({
+    //             titulo: anounce?.titulo,
+    //             imagen: anounce.imagen,
+    //             link  : anounce?.link,
+    //             onSuccess: (response) => {
+    //                 console.log(response);
+    //                 setIsLoading(false);
+    //             },
+    //             onError: (error) => {
+    //                 setIsLoading(false);
+    //                 console.log(error);
+    //             }
+    //         })
+    //     }
+    // }
 
 
     return (
@@ -196,7 +196,7 @@ const UserPublicidad = () => {
 
 
             <Modal centered open={showAddModal} footer={null} onCancel={close}>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label>{translate("Crear anuncio.")}</label>
 
                     <div class="mb-3">
@@ -216,7 +216,7 @@ const UserPublicidad = () => {
 
 
                     <button type="button" class="btn btn-primary pull-right" onClick={Anounce.save()}>Enviar</button>
-                </div>
+                </div> */}
             </Modal>
 
 
