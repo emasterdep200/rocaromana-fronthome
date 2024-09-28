@@ -91,19 +91,19 @@ const UserPublicidad = () => {
 
             setIsLoading(true);
 
-            AddAnuncio({
-                titulo: anounce?.titulo,
-                imagen: anounce.imagen,
-                link  : anounce?.link,
-                onSuccess: (response) => {
-                    console.log(response);
-                    setIsLoading(false);
-                },
-                onError: (error) => {
-                    setIsLoading(false);
-                    console.log(error);
-                }
-            })
+            // AddAnuncio({
+            //     titulo: anounce?.titulo,
+            //     imagen: anounce.imagen,
+            //     link  : anounce?.link,
+            //     onSuccess: (response) => {
+            //         console.log(response);
+            //         setIsLoading(false);
+            //     },
+            //     onError: (error) => {
+            //         setIsLoading(false);
+            //         console.log(error);
+            //     }
+            // })
         }
     }
 
