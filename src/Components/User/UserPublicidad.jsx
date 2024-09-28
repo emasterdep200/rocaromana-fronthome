@@ -82,8 +82,10 @@ const UserPublicidad = () => {
         setShowAddModal(false);
     };
 
+    const Anounce = '';
+
     useEffect(() => { 
-        const Anounce = {
+        Anounce = {
             titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
             imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files});  },
             link   : (event) => { setAnounce({...anounce, link:event?.target?.value});  },
@@ -106,7 +108,7 @@ const UserPublicidad = () => {
                 })
             }
         }
-    }, []);
+    }, [Anounce]);
 
 
 
@@ -199,7 +201,7 @@ const UserPublicidad = () => {
 
 
             <Modal centered open={showAddModal} footer={null} onCancel={close}>
-                {/* <div className="form-group">
+                <div className="form-group">
                     <label>{translate("Crear anuncio.")}</label>
 
                     <div class="mb-3">
@@ -219,7 +221,7 @@ const UserPublicidad = () => {
 
 
                     <button type="button" class="btn btn-primary pull-right" onClick={Anounce.save()}>Enviar</button>
-                </div> */}
+                </div>
             </Modal>
 
 
