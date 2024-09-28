@@ -204,7 +204,6 @@ export const addAnuncio = (titulo,imagen,link) => {
         url: `${ADD_ANUNCIO}`,
         method: "POST",
         data,
-        authorizationHeader: true,
     }
 }
 
