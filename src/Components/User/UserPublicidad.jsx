@@ -50,7 +50,6 @@ const UserPublicidad = () => {
 
     const userData = useSelector(userSignUpData);
     const user = userData?.data?.data
-    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => { }, [lang]);
 
@@ -70,8 +69,6 @@ const UserPublicidad = () => {
                 console.log(error);
             }
         })
-
-        setIsClient(true);
 
     }, [offsetdata, isLoggedIn, user]);
 
