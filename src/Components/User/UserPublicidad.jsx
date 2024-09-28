@@ -222,7 +222,7 @@ const UserPublicidad = () => {
                     </div>
 
 
-                    <button type="button" class="btn btn-primary pull-right" onClick={SendPub()}>Enviar</button>
+                    <button type="button" class="btn btn-primary pull-right" onClick={SendPub}>Enviar</button>
                 </div>
             </Modal>
 
