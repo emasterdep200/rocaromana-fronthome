@@ -237,7 +237,7 @@ export const AddAnuncio = ({
 }) => {
     store.dispatch(
         apiCallBegan({
-            ...addAnuncio(user_id),
+            ...addAnuncio(titulo, imagen, link),
             displayToast: false,
             onStart,
             onSuccess,
