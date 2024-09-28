@@ -86,8 +86,6 @@ const UserPublicidad = () => {
     };
 
 
-    const imageInputRef = useRef<HTMLInputElement | null>(null);
-
     const Anounce = {
         titulo : (event) => { setAnounce({...anounce, titulo:event?.target?.value});  },
         imagen : (event) => { setAnounce({...anounce, imagen:event?.target?.files[0]});  },
@@ -98,7 +96,7 @@ const UserPublicidad = () => {
 
             AddAnuncio({
                 titulo: anounce?.titulo,
-                imagen: imageInputRef.current ? imageInputRef.current.files[0] : [],
+                imagen: anounce.imagen,
                 link  : anounce?.link,
                 onSuccess: (response) => {
                     console.log(response);
