@@ -1,10 +1,14 @@
 
 import React from "react";
-import AboutUs from "@/Components/AboutUs/AboutUs";
+// import AboutUs from "@/Components/AboutUs/AboutUs";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
 
+const AboutUs = dynamic(
+  () => import('@/Components/AboutUs/AboutUs'),
+  { ssr: false })
 
 // This is seo api
 const fetchDataFromSeo = async (page) => {

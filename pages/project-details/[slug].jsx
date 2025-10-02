@@ -1,9 +1,13 @@
 import React from 'react'
-import ProjectDetails from '@/Components/ProjectDetails/ProjectDetails'
+// import ProjectDetails from '@/Components/ProjectDetails/ProjectDetails'
 import axios from "axios";
 import { GET_PROJECTS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
 
+const ProjectDetails = dynamic(
+  () => import('@/Components/ProjectDetails/ProjectDetails'),
+  { ssr: false })
 // This is seo api
 const fetchDataFromSeo = async (slug) => {
     try {
@@ -39,7 +43,7 @@ let serverSidePropsFunction = null;
 if (process.env.NEXT_PUBLIC_SEO === "true") {
     serverSidePropsFunction = async (context) => {
         const { req } = context; // Extract query and request object from context
-        const { params } = req[Symbol.for('NextInternalRequestMeta')]._nextMatch;
+        const { params } = req[Symbol.for('NextInternalRequestMeta')].match;
         // Accessing the slug property
         //  const currentURL = req[Symbol.for('NextInternalRequestMeta')].__NEXT_INIT_URL;
 

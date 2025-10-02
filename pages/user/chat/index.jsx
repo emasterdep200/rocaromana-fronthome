@@ -1,10 +1,14 @@
 
 import React from 'react'
-import Messages from '@/Components/Messages/Messages';
+// import Messages from '@/Components/Messages/Messages';
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
 
+const Messages = dynamic(
+  () => import('@/Components/Messages/Messages'),
+  { ssr: false })
 const fetchDataFromSeo = async (page) => {
   try {
     const response = await axios.get(

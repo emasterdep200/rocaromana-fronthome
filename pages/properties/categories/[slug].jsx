@@ -1,8 +1,13 @@
 import React from "react";
-import Categories from "@/Components/Properties/Categories";
+// import Categories from "@/Components/Properties/Categories";
 import { GET_CATEGORES } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
 import axios from "axios";
+import dynamic from 'next/dynamic'
+
+const Categories = dynamic(
+  () => import('@/Components/Properties/Categories'),
+  { ssr: false })
 // This is seo api
 const fetchDataFromSeo = async (slug) => {
     try {
@@ -40,7 +45,7 @@ let serverSidePropsFunction = null;
 if (process.env.NEXT_PUBLIC_SEO === "true") {
     serverSidePropsFunction = async (context) => {
         const { req } = context; // Extract query and request object from context
-        const { params } = req[Symbol.for('NextInternalRequestMeta')]._nextMatch;
+        const { params } = req[Symbol.for('NextInternalRequestMeta')].match;
         // Accessing the slug property
         const slugValue = params.slug;
 

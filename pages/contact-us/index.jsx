@@ -1,9 +1,14 @@
 import React from "react";
 import Layout from "@/Components/Layout/Layout";
-import ContactUS from "@/Components/ContactUs/ContactUS";
+// import ContactUS from "@/Components/ContactUs/ContactUS";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
+
+const ContactUS = dynamic(
+  () => import('@/Components/ContactUs/ContactUS'),
+  { ssr: false })
 
 const fetchDataFromSeo = async (page) => {
     try {

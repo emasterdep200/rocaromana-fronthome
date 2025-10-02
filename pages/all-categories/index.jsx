@@ -1,9 +1,13 @@
 import React from "react";
-import AllCategories from "@/Components/AllCategories/AllCategories";
+// import AllCategories from "@/Components/AllCategories/AllCategories";
 import Meta from "@/Components/Seo/Meta";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
+import dynamic from 'next/dynamic'
 
+const AllCategories = dynamic(
+  () => import('@/Components/AllCategories/AllCategories'),
+  { ssr: false })
 // This is seo api
 const fetchDataFromSeo = async (page) => {
   try {

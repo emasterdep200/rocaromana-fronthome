@@ -2,8 +2,12 @@ import React from "react";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
-import SearchPage from "@/Components/SearchPage/SearchPage";
+// import SearchPage from "@/Components/SearchPage/SearchPage";
+import dynamic from 'next/dynamic'
 
+const SearchPage = dynamic(
+  () => import('@/Components/SearchPage/SearchPage'),
+  { ssr: false })
 
 // This is seo api
 const fetchDataFromSeo = async (page) => {

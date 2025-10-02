@@ -1,11 +1,15 @@
 import React from "react";
 import Layout from "@/Components/Layout/Layout";
-import FeaturedProperty from "@/Components/FeaturedProperty/FeaturedProperty";
+// import FeaturedProperty from "@/Components/FeaturedProperty/FeaturedProperty";
 
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
 
+const FeaturedProperty = dynamic(
+  () => import('@/Components/FeaturedProperty/FeaturedProperty'),
+  { ssr: false })
 
 // This is seo api
 const fetchDataFromSeo = async (page) => {

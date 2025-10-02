@@ -729,8 +729,8 @@ const SubscriptionPlan = () => {
                             <Input name="signature"       type="hidden"  value= {payuSign} />
                             <Input name="test"            type="hidden"  value="0" />
                             <Input name="buyerEmail"      type="hidden"  value="test@test.com" />
-                            <Input name="responseUrl"     type="hidden"  value="https://rocaromana.com/user/dashboard/" />
-                            <Input name="confirmationUrl" type="hidden"  value="https://admin.rocaromana.com/webhook/payu" />
+                            <Input name="responseUrl"     type="hidden"  value="https://rocaromana.co/user/dashboard/" />
+                            <Input name="confirmationUrl" type="hidden"  value="https://admin.rocaromana.co/webhook/payu" />
                             <Input name="Submit"          type="submit"  value="Ir a pagar" onClick={handlePaymentX}/>
                         </form>
                     </Modal>

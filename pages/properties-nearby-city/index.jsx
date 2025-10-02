@@ -1,9 +1,13 @@
 import React from "react";
-import NearBycity from "@/Components/NearByCity/NearBycity";
+// import NearBycity from "@/Components/NearByCity/NearBycity";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
+import dynamic from 'next/dynamic'
 
+const NearBycity = dynamic(
+  () => import('@/Components/NearByCity/NearBycity'),
+  { ssr: false })
 
 // This is seo api
 const fetchDataFromSeo = async (page) => {

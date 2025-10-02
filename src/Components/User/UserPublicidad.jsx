@@ -156,7 +156,7 @@ const UserPublicidad = () => {
                                             <TableCell component="th" scope="row" sx={{ width: "40%" }}>
                                                 <div className="card" id="listing_card">
                                                     <div className="listing_card_img">
-                                                        <Image loading="lazy" src={'https://admin.rocaromana.com/images/publicity/' + elem?.imagen} alt="no_img" id="main_listing_img" width={200} height={240} onError={placeholderImage} />
+                                                        <Image loading="lazy" src={'https://admin.rocaromana.co/images/publicity/' + elem?.imagen} alt="no_img" id="main_listing_img" width={200} height={240} onError={placeholderImage} />
                                                     </div>
                                                     <div className="listing_card_body">
                                                         <span className="listing_prop_title">{elem?.titulo}</span>

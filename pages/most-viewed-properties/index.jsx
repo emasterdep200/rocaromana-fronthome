@@ -1,13 +1,17 @@
 import React from "react";
 import Layout from "@/Components/Layout/Layout";
-import MostViewProperties from "@/Components/MostViewProperties/MostViewProperties";
+// import MostViewProperties from "@/Components/MostViewProperties/MostViewProperties";
 
 
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
 
+import dynamic from 'next/dynamic'
 
+const MostViewProperties = dynamic(
+  () => import('@/Components/MostViewProperties/MostViewProperties'),
+  { ssr: false })
 // This is seo api
 const fetchDataFromSeo = async (page) => {
     try {

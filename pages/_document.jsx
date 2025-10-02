@@ -1,6 +1,7 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import { GoogleTagManager } from '@next/third-parties/google'
+import Script from 'next/script';
 
 class CustomDocument extends Document {
 
@@ -12,8 +13,7 @@ class CustomDocument extends Document {
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
                     <link rel="stylesheet" href="/css/react-spring-lightbox.css" />
 
-                    <link rel="shortcut icon" href="https://admin.rocaromana.com/assets/images/logo/favicon.png" sizes="32x32" type="image/png" />
-
+                    <link rel="shortcut icon" href="https://admin.rocaromana.co/assets/images/logo/favicon.png" sizes="32x32" type="image/png" />
 
                     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
                     <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API}&libraries=places&loading=async`}></script>
@@ -24,15 +24,18 @@ class CustomDocument extends Document {
 
                     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-                    {/* Google Adsence */}
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5187122762138955"
-                        crossorigin="anonymous"></script>
+                        crossorigin="anonymous">
+                    </script>
                     
                     
 
                 </Head>
+                
+
 
                 <body>
+                
                     <Main />
                     <NextScript />
                     

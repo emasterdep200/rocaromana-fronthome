@@ -2,8 +2,12 @@ import React from "react";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
-import City from "@/Components/Properties/City";
+// import City from "@/Components/Properties/City";
+import dynamic from 'next/dynamic'
 
+const City = dynamic(
+  () => import('@/Components/Properties/City'),
+  { ssr: false })
 const fetchDataFromSeo = async (slug) => {
     try {
         const response = await axios.get(
@@ -53,7 +57,7 @@ let serverSidePropsFunction = null;
 if (process.env.NEXT_PUBLIC_SEO === "true") {
     serverSidePropsFunction = async (context) => {
         const { req } = context; // Extract query and request object from context
-        const { params } = req[Symbol.for('NextInternalRequestMeta')]._nextMatch;
+        const { params } = req[Symbol.for('NextInternalRequestMeta')].match;
         // Accessing the slug property
         const slugValue = params.slug;
 

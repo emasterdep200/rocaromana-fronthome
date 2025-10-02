@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../src/store/store";
+import { store } from "@/store/store";
 import { Fragment } from "react";
 
 

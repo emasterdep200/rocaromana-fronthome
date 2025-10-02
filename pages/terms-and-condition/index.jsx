@@ -2,8 +2,12 @@ import React from "react";
 import axios from "axios";
 import { GET_SEO_SETTINGS } from "@/utils/api";
 import Meta from "@/Components/Seo/Meta";
-import TermsAndCondition from "@/Components/TermsAndCondition/TermsAndCondition";
+// import TermsAndCondition from "@/Components/TermsAndCondition/TermsAndCondition";
+import dynamic from 'next/dynamic'
 
+const TermsAndCondition = dynamic(
+  () => import('@/Components/TermsAndCondition/TermsAndCondition'),
+  { ssr: false })
 
 // This is seo api
 const fetchDataFromSeo = async (page) => {

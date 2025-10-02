@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { store } from 'src/store/store'
+import { store } from "@/store/store"
 
 const Api = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_END_POINT}`

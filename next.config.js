@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const withTM = require("next-transpile-modules")(["rc-util"]);
 const path = require('path')
 /** @type {import('next').NextConfig} */
 
@@ -10,7 +11,7 @@ const nextConfig = {
     buildActivity: false
   },
   trailingSlash: true,
-  reactStrictMode: false,
+  reactStrictMode: true,
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./scripts/sitemap-generator')
