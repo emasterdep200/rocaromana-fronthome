@@ -50,6 +50,15 @@ const SubscriptionPlan = () => {
         return hash;
     };
 
+    // Función para formatear el precio como moneda
+    const formatCurrency = (price) => {
+        if (!price && price !== 0) return '';
+        return new Intl.NumberFormat('es-CO', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(price);
+    };
+
     const router = useRouter();
 
     const [packagedata, setPackageData] = useState([]);
@@ -613,7 +622,7 @@ const SubscriptionPlan = () => {
                                                         <h1 className="card_text">
                                                             {
                                                                 elem.price !== 0
-                                                                    ? systemsettings?.currency_symbol + elem.price
+                                                                    ? systemsettings?.currency_symbol + ' ' + formatCurrency(elem.price)
                                                                     : "Free"
                                                             }
 

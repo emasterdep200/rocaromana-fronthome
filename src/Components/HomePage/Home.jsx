@@ -345,7 +345,7 @@ const HomePage = () => {
         );
     }, []);
 
-    // get all project api 
+    // get all project api
     useEffect(() => {
         setIsLoading(true);
 
@@ -363,7 +363,7 @@ const HomePage = () => {
         });
     }, []);
 
-    // getUserRecommendationApi  
+    // getUserRecommendationApi
     useEffect(() => {
         if (isLoggedIn && userCurrentId) {
             getUserRecommendationApi({
@@ -1144,7 +1144,7 @@ const HomePage = () => {
                                         modules={[FreeMode, Pagination, Autoplay, Navigation]}
                                         navigation
                                         autoplay={{ delay: 6000 }}
-                                        className="most-view-swiper"    
+                                        className="most-view-swiper"
                                         breakpoints={breakpointsMostFav}
                                     >
                                         {isLoading ? (
@@ -1225,7 +1225,7 @@ const HomePage = () => {
                                         freeMode={true}
                                         pagination={{
                                             clickable: true,
-                                            
+
                                         }}
                                         modules={[FreeMode, Pagination]}
                                         className='agent-swiper'
@@ -1246,7 +1246,7 @@ const HomePage = () => {
                                                 freeMode={true}
                                                 pagination={{
                                                     clickable: true,
-                                                    
+
                                                 }}
                                                 modules={[FreeMode, Pagination]}
                                                 className='agent-swiper'

@@ -73,6 +73,11 @@ export default function AddPropertyTabs() {
     const lang = useSelector(languageData);
 
     const [showLoader, setShowLoader] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => { }, [lang]);
     const [tab1, setTab1] = useState({
@@ -119,13 +124,41 @@ export default function AddPropertyTabs() {
         e.preventDefault()
         setValue(newValue);
     };
+    // Función para formatear número a moneda
+    const formatCurrency = (value) => {
+        if (!value) return '';
+        // Eliminar todo lo que no sea número
+        const numericValue = value.toString().replace(/[^0-9]/g, '');
+        if (!numericValue) return '';
+        // Formatear con separador de miles (punto) solo en cliente
+        if (!isMounted) return numericValue; // Retornar sin formato durante SSR
+        return new Intl.NumberFormat('de-DE').format(numericValue);
+    };
+
+    // Función para obtener el valor numérico sin formato
+    const getNumericValue = (value) => {
+        if (!value) return '';
+        return value.toString().replace(/[^0-9]/g, '');
+    };
+
     const handleInputChange = (e) => {
         e.preventDefault()
         const { name, value } = e.target;
-        setTab1({
-            ...tab1,
-            [name]: value,
-        });
+        
+        // Si es el campo de precio, guardar solo el valor numérico
+        if (name === 'price') {
+            const numericValue = getNumericValue(value);
+            setTab1({
+                ...tab1,
+                [name]: numericValue,
+            });
+        } else {
+            setTab1({
+                ...tab1,
+                [name]: value,
+            });
+        }
+        
         setTab6({
             ...tab6,
             [name]: value,
@@ -717,17 +750,12 @@ export default function AddPropertyTabs() {
                                         <div className="add_prop_fields">
                                             <span>{translate("price")}</span>
                                             <input
-                                                type="number"
+                                                type="text"
                                                 id="prop_title_input"
                                                 placeholder={`Enter Property Price (${CurrencySymbol})`}
                                                 name="price"
                                                 onChange={handleInputChange}
-                                                value={tab1.price}
-                                                onInput={(e) => {
-                                                    if (e.target.value < 0) {
-                                                        e.target.value = 0;
-                                                    }
-                                                }}
+                                                value={formatCurrency(tab1.price)}
                                             />
                                         </div>
                                     </div>
@@ -750,17 +778,12 @@ export default function AddPropertyTabs() {
                                         <div className="add_prop_fields">
                                             <span>{translate("price")}</span>
                                             <input
-                                                type="number"
+                                                type="text"
                                                 id="prop_title_input"
                                                 placeholder={`Enter Property Price (${CurrencySymbol})`}
                                                 name="price"
                                                 onChange={handleInputChange}
-                                                value={tab1.price}
-                                                onInput={(e) => {
-                                                    if (e.target.value < 0) {
-                                                        e.target.value = 0;
-                                                    }
-                                                }}
+                                                value={formatCurrency(tab1.price)}
                                             />
                                         </div>
                                     </div>
